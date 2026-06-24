@@ -122,19 +122,95 @@ export default function App() {
 
 
 {/*----------------------------    Testimonials --------------------------------------------*/} 
-
-
 <section className="max-w-7xl mx-auto px-6 py-24">
-        <h2 className="text-4xl font-bold text-center mb-12">Testimonials</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[1,2,3].map(i => (
-            <div key={i} className="bg-white/70 backdrop-blur p-8 rounded-3xl shadow">
-              <div className="flex mb-4">{[1,2,3,4,5].map(s => <Star key={s} fill="currentColor" />)}</div>
-              <p>"The best coffee experience in the city."</p>
-            </div>
+  <div className="text-center mb-16">
+    <span className="text-[#1E3A5F] font-semibold uppercase tracking-widest">
+      What Our Guests Say
+    </span>
+    <h2 className="text-4xl md:text-5xl font-bold mt-3 text-gray-900">
+      Loved by Coffee Enthusiasts
+    </h2>
+    <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+      Thousands of customers enjoy our handcrafted coffee, fresh pastries,
+      and cozy atmosphere every day.
+    </p>
+  </div>
+
+  <div className="grid md:grid-cols-3 gap-8">
+    {[
+      {
+        name: "Sarah Mitchell",
+        role: "Food Blogger",
+        image:
+          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300",
+        quote:
+          "Every cup feels carefully crafted. The espresso is rich, smooth, and consistently exceptional.",
+      },
+      {
+        name: "Daniel Carter",
+        role: "Remote Designer",
+        image:
+          "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300",
+        quote:
+          "My favorite place to work and unwind. Great coffee, warm ambiance, and friendly staff.",
+      },
+      {
+        name: "Emma Wilson",
+        role: "Local Customer",
+        image:
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300",
+        quote:
+          "The pastries are incredible and the coffee is always fresh. A true hidden gem in the city.",
+      },
+    ].map((item, i) => (
+      <div
+        key={i}
+        className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+      >
+        <div className="flex items-center gap-4 mb-6">
+          <img
+            src={item.image}
+            alt={item.name}
+            className="w-14 h-14 rounded-full object-cover"
+          />
+
+          <div>
+            <h4 className="font-semibold text-lg">{item.name}</h4>
+            <p className="text-sm text-gray-500">{item.role}</p>
+          </div>
+        </div>
+
+        <div className="flex gap-1 text-amber-400 mb-4">
+          {[...Array(5)].map((_, index) => (
+            <Star
+              key={index}
+              size={18}
+              fill="currentColor"
+              strokeWidth={0}
+            />
           ))}
         </div>
-      </section>
+
+        <p className="text-gray-600 leading-relaxed italic">
+          "{item.quote}"
+        </p>
+      </div>
+    ))}
+  </div>
+
+  <div className="mt-16 text-center">
+    <div className="inline-flex items-center gap-3 bg-white px-6 py-4 rounded-full shadow-md">
+      <div className="flex text-amber-400">
+        {[...Array(5)].map((_, i) => (
+          <Star key={i} size={18} fill="currentColor" strokeWidth={0} />
+        ))}
+      </div>
+      <span className="font-semibold text-gray-800">
+        4.9/5 Average Rating from 2,500+ Happy Customers
+      </span>
+    </div>
+  </div>
+</section>
 
       {/*----------------------------    Gallery --------------------------------------------*/}
 
